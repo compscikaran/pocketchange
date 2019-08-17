@@ -1,0 +1,8 @@
+CREATE TABLE expense(
+expid INT NOT NULL AUTO_INCREMENT,
+title VARCHAR(100),
+amount FLOAT, 
+category ENUM('FOOD','BILLS','EMI','HEALTH','SHOPPING','TRAVEL','OTHERS'),
+stamp DATE,
+PRIMARY KEY(expid)
+);
