@@ -2,11 +2,8 @@ package com.mvc.dao;
 
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
-
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -14,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.models.pack.Category;
-import com.models.pack.ExpenseModel;
 import com.mvc.entities.Expense;
 
 @Repository
@@ -66,4 +62,5 @@ public class ExpenseDAO {
 		sess.delete(emp);
 		return "Delete Successfull";
 	}
+	
 }

@@ -36,6 +36,7 @@ public class ExpenseController {
 		m.addAttribute("filtered", false);
 		m.addAttribute("fmodel", fm);
 		m.addAttribute("title", "All Expenses");
+		m.addAttribute("total", service.total(emList));
 		return new ModelAndView("index");
 	}
 	
@@ -93,9 +94,10 @@ public class ExpenseController {
 		m.addAttribute("elist", emList);
 		m.addAttribute("filtered", true);
 		m.addAttribute("title", category.name());
+		m.addAttribute("total", service.total(emList));
 		return new ModelAndView("index");
 	}
-}
 	
+}
 	
 	

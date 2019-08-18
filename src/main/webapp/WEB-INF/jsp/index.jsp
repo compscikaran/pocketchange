@@ -70,6 +70,15 @@
 		</tbody>
 	</table>
 </div>
+<div class="row">
+	<div class="col-md-2">
+		<h5>Total</h5>
+	</div>
+	<div class="col-md-8"></div>
+	<div class="col-md-2">
+		<h5><c:out value="${total}"></c:out></h5>
+	</div>
+</div>
 </div>
 </body>
 </html>

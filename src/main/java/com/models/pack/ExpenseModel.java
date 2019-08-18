@@ -46,5 +46,4 @@ public class ExpenseModel {
 		// TODO Auto-generated method stub
 		return String.format("%s %f %s %s", this.title, this.amount, this.stamp.toString(), this.category.name());
 	}
-	
 }

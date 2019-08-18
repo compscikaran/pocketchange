@@ -1,6 +1,8 @@
 package com.mvc.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -50,6 +52,14 @@ public class ExpenseService {
 	public List<ExpenseModel> allExpenses() {
 		List<Expense> expenseList =  edao.allExpenses();
 		List<ExpenseModel> emList = new ArrayList<ExpenseModel>();
+		Comparator<Expense> reverseDates = Collections.reverseOrder(new Comparator<Expense>() {
+
+			@Override
+			public int compare(Expense o1, Expense o2) {
+				return o1.getStamp().compareTo(o2.getStamp());
+			}
+		});
+		Collections.sort(expenseList, reverseDates);
 		for (Expense expense : expenseList) {
 			ExpenseModel em = new ExpenseModel();
 			em.setTitle(expense.getTitle());
@@ -85,6 +95,14 @@ public class ExpenseService {
 		model.setAmount(exp.getAmount());
 		model.setCategory(exp.getCategory());
 		return model;
+	}
+	
+	public float total(List<ExpenseModel> emList) {
+		float sum = 0;
+		for (ExpenseModel em : emList) {
+			sum += em.getAmount();
+		}
+		return sum;
 	}
 	
 }
