@@ -21,7 +21,7 @@
 		<div class="col-md-2"></div>
 	</div>
 	<br><br><hr><br>
-		<div class="row">
+	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
     	<h1 style="text-align:center;">Monthly Analysis</h1><br><br>
@@ -29,25 +29,50 @@
     	</div>
 		<div class="col-md-2"></div>
 	</div>
+	<br><br><hr><br>
 </div>
+<!-- Loading the Category Spending Chart -->
 <script>
-    data = {
+    datacats = {
     	    datasets: [{
     	        label: "Category Wise Spending",
     	        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#99b433", "#e3a21a"],
-    	    	data: ${model.getCategorySpending().values()}
+    	    	data: ${model.getCategorySpending()}
     	    }],
     	    // These labels appear in the legend and in the tooltips when hovering different arcs
     	    labels: ["SHOPPING", "OTHERS", "HEALTH", "TRAVEL", "BILLS", "EMI", "FOOD"]
     
     	};
-        // Get the context of the canvas element we want to select
-        var ctx= document.getElementById("categories").getContext("2d");
-        var myDoughnutChart = new Chart(ctx, {
+        
+        var ctx1= document.getElementById("categories").getContext("2d");
+        
+        var myDoughnutChart1 = new Chart(ctx1, {
             type: 'doughnut',
-            data: data,
+            data: datacats,
             options: Chart.defaults.doughnut
         });
-    </script>	
+</script>
+<!-- Loading Monthly Spending Chart -->    
+<script>
+    datamonths = {
+    	    datasets: [{
+    	        label: "Monthly Spending",
+    	        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#99b433", "#e3a21a"],
+    	    	data: ${model.getMonthlySpending()}
+    	    }],
+    	    // These labels appear in the legend and in the tooltips when hovering different arcs
+    	    labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+    
+    	};
+    
+    var ctx2= document.getElementById("monthly").getContext("2d");
+
+
+    var myDoughnutChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: datamonths,
+        options: Chart.defaults.doughnut
+    });    
+</script>	
 </body>
 </html>

@@ -1,20 +1,32 @@
 package com.models.pack;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class AnalyticsModel {
-	private HashMap<Category, Float> categorySpending;
+	private List<Float> categorySpending;
 	private Float total;
+	private List<Float> monthlySpending;
 	
 	public AnalyticsModel() {
-		categorySpending = new HashMap<Category, Float>();
+		categorySpending = new ArrayList<Float>();
+		monthlySpending = new ArrayList<Float>();
 	}
 
-	public HashMap<Category, Float> getCategorySpending() {
+	public List<Float> getMonthlySpending() {
+		return monthlySpending;
+	}
+
+	public void setMonthlySpending(List<Float> monthlySpending) {
+		this.monthlySpending = monthlySpending;
+	}
+
+	public List<Float> getCategorySpending() {
 		return categorySpending;
 	}
 
-	public void setCategorySpending(HashMap<Category, Float> categorySpending) {
+	public void setCategorySpending(List<Float> categorySpending) {
 		this.categorySpending = categorySpending;
 	}
 
@@ -25,6 +37,4 @@ public class AnalyticsModel {
 	public void setTotal(Float total) {
 		this.total = total;
 	}
-	
-	
 }

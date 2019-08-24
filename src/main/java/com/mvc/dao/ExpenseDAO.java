@@ -3,7 +3,10 @@ package com.mvc.dao;
 
 import java.io.Serializable;
 import java.util.List;
+
+
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -45,6 +48,12 @@ public class ExpenseDAO {
 		return expenseList;
 	}
 	
+	public List<Expense> getExpensesByMonth(int month) {
+		Session sess = sessionFactory.getCurrentSession();
+		Query query = sess.createQuery("FROM " + Expense.class.getName() + " WHERE MONTH(stamp) = " + month);
+		List<Expense> resultList = query.list();
+		return resultList;
+	}
 	public Expense getExpense(int id) {
 		Session sess = sessionFactory.getCurrentSession();
 		Expense exp = (Expense) sess.load(Expense.class, id);

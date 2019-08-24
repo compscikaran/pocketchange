@@ -21,14 +21,20 @@ public class AnalyticsService {
 	
 	
 	public AnalyticsModel calculateCategorySpending(AnalyticsModel model) {
-		Float total = 0f;
 		for (Category cat : Category.values()) {
 			List<Expense> eList = edao.getExpensesByCategory(cat);
 			Float result =  sumExpenses(eList);
-			total += result;
-			model.getCategorySpending().put(cat,result);
+			model.getCategorySpending().add(result);
 		}
-		model.setTotal(total);
+		return model;
+	}
+	
+	public AnalyticsModel calculateMonthlySpending(AnalyticsModel model) {
+		for (int i = 1; i < 13; i++) {
+			List<Expense> eList = edao.getExpensesByMonth(i);
+			Float result = sumExpenses(eList);
+			model.getMonthlySpending().add(result);
+		}
 		return model;
 	}
 	

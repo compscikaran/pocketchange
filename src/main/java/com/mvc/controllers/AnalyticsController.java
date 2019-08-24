@@ -20,13 +20,13 @@ import com.mvc.services.AnalyticsService;
 public class AnalyticsController {
 	
 	@Autowired
-	private AnalyticsService service1;
+	private AnalyticsService service;
 	
 	@RequestMapping("/dashboard")
 	public ModelAndView dashboard(Model m) {
 		AnalyticsModel model = new AnalyticsModel();
-		model = service1.calculateCategorySpending(model);
-		
+		model = service.calculateCategorySpending(model);
+		model = service.calculateMonthlySpending(model);
 		m.addAttribute("model", model);
 		return new ModelAndView("dashboard");
 	}
