@@ -21,8 +21,10 @@ public class AnalyticsService {
 	
 	
 	public AnalyticsModel calculateCategorySpending(AnalyticsModel model) {
-		for (Category cat : Category.values()) {
-			List<Expense> eList = edao.getExpensesByCategory(cat);
+		String[] arr = {"SHOPPING", "OTHERS", "HEALTH", "TRAVEL", "BILLS", "EMI", "FOOD"};
+		for (String cat : arr) {
+			Category category = Category.valueOf(cat);
+			List<Expense> eList = edao.getExpensesByCategory(category);
 			Float result =  sumExpenses(eList);
 			model.getCategorySpending().add(result);
 		}

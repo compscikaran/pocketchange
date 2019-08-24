@@ -17,7 +17,7 @@
 	<div class="col-md-8">
 		<h1>Add New Expense</h1><br><br>
 
-		<form:form action="modify" modelAttribute="exp" method="PUT">
+		<form:form action="modify" modelAttribute="exp">
 			<label for="title">Title</label><br>
 			<form:hidden path="expid"/>
 			<form:input path="title" /><br><br>

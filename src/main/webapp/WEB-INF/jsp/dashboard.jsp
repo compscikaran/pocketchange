@@ -57,7 +57,7 @@
     datamonths = {
     	    datasets: [{
     	        label: "Monthly Spending",
-    	        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#99b433", "#e3a21a"],
+    	        backgroundColor: "#3e95cd",
     	    	data: ${model.getMonthlySpending()}
     	    }],
     	    // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -69,9 +69,9 @@
 
 
     var myDoughnutChart2 = new Chart(ctx2, {
-        type: 'doughnut',
+        type: 'bar',
         data: datamonths,
-        options: Chart.defaults.doughnut
+        options: Chart.defaults.bar
     });    
 </script>	
 </body>

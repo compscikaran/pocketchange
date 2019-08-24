@@ -60,7 +60,7 @@
     				</form>
     			</td>
     			<td>
-    				<form action="delete" method="DELETE">
+    				<form action="delete" method="POST">
     					<input type="hidden" value="${item.expid}" name="id"/>
     					<input type="submit" value="Delete"/>
     				</form>

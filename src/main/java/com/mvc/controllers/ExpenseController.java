@@ -69,7 +69,7 @@ public class ExpenseController {
 		return new ModelAndView("update");
 	}
 	
-	@RequestMapping(value = "/modify", method =RequestMethod.PUT)
+	@RequestMapping(value = "/modify", method =RequestMethod.POST)
 	public RedirectView saveUpdateExpense(@ModelAttribute("exp") ExpenseModel exp) {
 		if(exp.getTitle() == null || exp.getAmount() == 0 || exp.getCategory() == null) {
 			return new RedirectView("update");
@@ -80,7 +80,7 @@ public class ExpenseController {
 		}
 	}
 	
-	@RequestMapping(value = "/delete", method =RequestMethod.DELETE)
+	@RequestMapping("/delete")
 	public RedirectView deleteExpense(HttpServletRequest request) {
 		int id = Integer.valueOf(request.getParameter("id"));
 		System.out.println(service.deleteExpense(id));
