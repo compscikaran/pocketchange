@@ -13,10 +13,7 @@
         <a class="nav-link" href="./new">New</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Report</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filter</a>
+        <a class="nav-link" href="./dashboard">Dashboard</a>
       </li>
     </ul>
    
