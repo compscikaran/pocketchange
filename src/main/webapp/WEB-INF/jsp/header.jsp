@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" href="./dashboard">Dashboard</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./report">Report</a>
+      </li>
     </ul>
    
   </div>
